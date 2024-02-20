@@ -64,7 +64,7 @@ public class CalculatorTest {
     @Test
     public void should_return_6_with_multi_delimiters_which_are_long(){
         Calculator calculator = new Calculator();
-        assertEquals(6, calculator.add("//[***]\n1***2***3"));
+        assertEquals(6, calculator.add("//[***][;;;]\n1***2;;;3"));
 
     }
 }
