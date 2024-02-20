@@ -40,6 +40,13 @@ public class CalculatorTest {
         assertThrows(RuntimeException.class, ()->calculator.add("-1,-2,-3"));
 
     }
+
+    @Test
+    public void should_return_6_with_long_delimiter(){
+        Calculator calculator = new Calculator();
+        assertEquals(6,calculator.add("//[***]\n1***2***3"));
+
+    }
     @Test
     public void should_return_2_when_2_delimiter_1001(){
         Calculator calculator = new Calculator();
@@ -48,9 +55,16 @@ public class CalculatorTest {
     }
 
     @Test
-    public void should_return6_with_multi_delimiters(){
+    public void should_return_6_with_multi_delimiters(){
         Calculator calculator = new Calculator();
         assertEquals(6, calculator.add("//[*][;]\n1*2;3"));
+
+    }
+
+    @Test
+    public void should_return_6_with_multi_delimiters_which_are_long(){
+        Calculator calculator = new Calculator();
+        assertEquals(6, calculator.add("//[***]\n1***2***3"));
 
     }
 }

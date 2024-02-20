@@ -1,7 +1,6 @@
 package fr.norsys.stringcalculator;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -22,7 +21,7 @@ public class Calculator {
        if(!negativeNumbers.isEmpty())throw new RuntimeException("negative not allowed"+negativeNumbers);
        int s=0;
         for(String str:nums){
-            int n =Integer.parseInt(str);
+            int n = str.isEmpty()?0:Integer.parseInt(str);
             s+=(n<=1000?n:0);
         }
         return s;
@@ -34,7 +33,7 @@ public class Calculator {
         String[] dels = str.split("]");
         for(String s:dels) {
             String strDelimiter=s.substring(1).trim();
-            if(strDelimiter.equals("*")) delimiters.add("\\*");
+            if(strDelimiter.startsWith("*")) delimiters.add("\\*+");
             else delimiters.add(strDelimiter);
         }
         return  delimiters;
